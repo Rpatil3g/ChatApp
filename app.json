@@ -16,7 +16,12 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "package": "com.rpatil10750.GeminiChatApp"
     },
     "web": {
       "bundler": "metro",
@@ -25,19 +30,23 @@
     },
     "plugins": [
       "expo-router",
+      "expo-audio",
       [
-        "expo-splash-screen",
+        "@react-native-voice/voice",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "microphonePermission": "This app uses the microphone to allow you to speak your chat messages.",
+          "speechRecognitionPermission": "This app uses speech recognition to transcribe your voice into text."
         }
-      ],
-      "expo-audio"
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "acdb4ac4-511f-496a-8a2a-ea2eb6fae9d0"
+      }
     }
   }
 }
